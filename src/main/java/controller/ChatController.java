@@ -35,9 +35,9 @@ public class ChatController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 환경 변수에서 API 키 로드
-        Dotenv dotenv = Dotenv.load();
-        String token = dotenv.get("TOGETHER_API_KEY");
-
+//        Dotenv dotenv = Dotenv.load();
+//        String token = dotenv.get("TOGETHER_API_KEY");
+        String token = System.getenv("TOGETHER_API_KEY");
         // 인코딩 설정 (한글 사용 가능하도록)
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");

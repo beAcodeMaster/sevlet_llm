@@ -53,6 +53,15 @@
         </includes>
       </resource>
     </resources>
+
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version> <!-- 기존 2.2에서 최신 버전으로 업데이트 -->
+        </plugin>
+      </plugins>
+
   </build>
 
 

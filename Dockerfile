@@ -1,5 +1,5 @@
 # 1단계: Maven을 이용해 프로젝트 빌드
-FROM maven:3.8.6-openjdk-17 AS build
+FROM maven:3.8.6-eclipse-temurin-17 AS build
 WORKDIR /app
 
 # 프로젝트 파일을 복사

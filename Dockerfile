@@ -1,5 +1,5 @@
 # Tomcat 10.1.0과 OpenJDK 17 (Temurin) 기반 이미지 사용
-FROM tomcat:10.1.361-jdk17-temurin
+FROM tomcat:10.1.0-jdk17-temurin
 
 # 기본으로 포함된 웹 애플리케이션 제거
 RUN rm -rf /usr/local/tomcat/webapps/*

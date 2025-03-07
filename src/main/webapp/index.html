@@ -17,7 +17,7 @@
         let inputText = document.getElementById("searchInput").value;
         let requestData = { content: inputText };
 
-        fetch("https://sevlet-llm.onrender.com/sevlet-pipeline/chat", {  // Render 배포 주소 적용
+        fetch("https://sevlet-llm.onrender.com/chat", {  // Render 배포 주소 적용
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestData)

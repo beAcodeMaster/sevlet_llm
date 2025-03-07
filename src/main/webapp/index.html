@@ -17,14 +17,13 @@
         let inputText = document.getElementById("searchInput").value;
         let requestData = { content: inputText };
 
-        fetch("/sevlet-pipeline/chat", {
+        fetch("https://sevlet-llm.onrender.com/sevlet-pipeline/chat", {  // Render 배포 주소 적용
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestData)
         })
             .then(response => response.json())
             .then(data => {
-                // API 응답을 화면에 표시
                 if (data.b64_json) {
                     document.getElementById("result").innerHTML =
                         `<img src="data:image/png;base64,${data.b64_json}" alt="Generated Image">`;
@@ -34,6 +33,7 @@
             })
             .catch(error => console.error("Error:", error));
     }
+
 </script>
 </body>
 </html>

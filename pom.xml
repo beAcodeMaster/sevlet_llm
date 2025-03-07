@@ -7,6 +7,12 @@
   <version>1.0-SNAPSHOT</version>
   <name>ex09 Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -27,10 +33,27 @@
       <version>6.1.0</version>
       <scope>provided</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.github.cdimascio/dotenv-java -->
+    <dependency>
+      <groupId>io.github.cdimascio</groupId>
+      <artifactId>dotenv-java</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
 
 
   </dependencies>
   <build>
     <finalName>ex09</finalName>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <includes>
+          <include>.env</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
+
+
 </project>

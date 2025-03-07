@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 검색</title>
+</head>
+<body>
+<h1>AI 검색</h1>
+<input type="text" id="searchInput" placeholder="검색어를 입력하세요">
+<button onclick="searchAI()">검색</button>
+
+<h2>검색 결과</h2>
+<div id="result"></div>
+
+<script>
+    function searchAI() {
+        let inputText = document.getElementById("searchInput").value;
+        let requestData = { content: inputText };
+
+        fetch("/sevlet-pipeline/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(requestData)
+        })
+            .then(response => response.json())
+            .then(data => {
+                // API 응답을 화면에 표시
+                if (data.b64_json) {
+                    document.getElementById("result").innerHTML =
+                        `<img src="data:image/png;base64,${data.b64_json}" alt="Generated Image">`;
+                } else {
+                    document.getElementById("result").innerText = "결과를 받아오지 못했습니다.";
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    }
+</script>
+</body>
+</html>
